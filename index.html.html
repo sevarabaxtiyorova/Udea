@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VolunteerHub | Verified Volunteer Experience for Careers & Education</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #2563EB;
+            --secondary-green: #10B981;
+            --accent-gold: #F59E0B;
+            --dark-gray: #1F2937;
+            --light-gray: #F9FAFB;
+            --text-gray: #6B7280;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--light-gray);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-blue);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #1D4ED8;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary-green);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #0DA271;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-blue);
+            color: white;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--dark-gray);
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Header and Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+
+        .logo i {
+            color: var(--secondary-green);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark-gray);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+            color: white;
+            padding: 150px 0 100px;
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .hero .btn-primary {
+            background-color: white;
+            color: var(--primary-blue);
+        }
+
+        .hero .btn-primary:hover {
+            background-color: #F0F9FF;
+        }
+
+        .hero .btn-outline {
+            border-color: white;
+            color: white;
+        }
+
+        .hero .btn-outline:hover {
+            background-color: white;
+            color: var(--primary-blue);
+        }
+
+        .partnership-badges {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .badge-label {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .badge {
+            background-color: white;
+            color: var(--primary-blue);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Value Propositions */
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .value-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .value-card:nth-child(1) .value-icon { color: var(--primary-blue); }
+        .value-card:nth-child(2) .value-icon { color: var(--secondary-green); }
+        .value-card:nth-child(3) .value-icon { color: var(--accent-gold); }
+        .value-card:nth-child(4) .value-icon { color: #8B5CF6; }
+
+        .value-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* How It Works */
+        .process-flow {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-top: 50px;
+        }
+
+        .process-flow::before {
+            content: '';
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background-color: #E5E7EB;
+            z-index: 1;
+        }
+
+        .step {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            flex: 1;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        .step h4 {
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        /* CRM Section */
+        .crm-section {
+            background-color: white;
+            border-radius: 15px;
+            padding: 60px;
+            margin-top: 80px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .crm-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .crm-feature {
+            padding: 25px;
+            border-radius: 10px;
+            background-color: #F0F9FF;
+            border-left: 4px solid var(--primary-blue);
+        }
+
+        /* Registration Forms */
+        .forms-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .form-container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-container h3 {
+            margin-bottom: 25px;
+            color: var(--dark-gray);
+            font-size: 1.8rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #D1D5DB;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: border 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 4rem;
+            color: #E5E7EB;
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            font-style: italic;
+            color: var(--text-gray);
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--dark-gray);
+        }
+
+        /* Partnerships */
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .partner-card {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .partner-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .partner-logo {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .partner-card:nth-child(1) .partner-logo { color: var(--primary-blue); }
+        .partner-card:nth-child(2) .partner-logo { color: var(--secondary-green); }
+        .partner-card:nth-child(3) .partner-logo { color: var(--accent-gold); }
+
+        /* Telegram Migration */
+        .telegram-section {
+            background: linear-gradient(135deg, #0088CC 0%, #006699 100%);
+            color: white;
+            padding: 60px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .telegram-section h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .telegram-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        /* Pricing */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .pricing-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 2px solid #E5E7EB;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--primary-blue);
+            transform: scale(1.05);
+            position: relative;
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--dark-gray);
+            margin: 20px 0;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: var(--text-gray);
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .pricing-features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--secondary-green);
+            font-weight: bold;
+        }
+
+        /* Blog */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .blog-image {
+            height: 200px;
+            background-color: #E5E7EB;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-gray);
+            font-size: 3rem;
+        }
+
+        .blog-content {
+            padding: 25px;
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        .blog-category {
+            background-color: #F0F9FF;
+            color: var(--primary-blue);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-gray);
+            color: white;
+            padding: 80px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-column h4 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: white;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #D1D5DB;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #374151;
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-blue);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #374151;
+            color: #9CA3AF;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .process-flow {
+                flex-direction: column;
+                gap: 50px;
+            }
+            
+            .process-flow::before {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background-color: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: transform 0.3s, opacity 0.3s;
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero-buttons .btn {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+            
+            .crm-section {
+                padding: 40px 20px;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .form-container {
+                padding: 30px 20px;
+            }
+            
+            .telegram-section {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <i class="fas fa-hands-helping"></i>
+                    VolunteerHub
+                </a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="nav-links" id="navLinks">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#how-it-works">How It Works</a>
+                    <a href="#for-students">For Students</a>
+                    <a href="#for-organizations">For Organizations</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Trusted Verification for Global Education & Local Careers</h1>
+            <p>VolunteerHub officially verifies volunteer experiences for university applications worldwide and career advancement in Uzbekistan</p>
+            
+            <div class="hero-buttons">
+                <a href="#student-registration" class="btn btn-primary">Students: Get Verified</a>
+                <a href="#organization-registration" class="btn btn-outline">Organizations: Join Platform</a>
+            </div>
+            
+            <div class="partnership-badges">
+                <span class="badge-label">Official Partners:</span>
+                <div class="badge">
+                    <i class="fas fa-landmark"></i>
+                    Uzbekistan Youth Affairs Agency
+                </div>
+                <div class="badge">
+                    <i class="fas fa-users"></i>
+                    Uzbekistan Volunteers Association
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Propositions -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why VolunteerHub?</h2>
+                <p>A dual-purpose platform addressing both local employment verification in Uzbekistan and international university admissions verification globally</p>
+            </div>
+            
+            <div class="value-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>For Students</h3>
+                    <p>Verified experience for university applications & employment</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>For Organizations</h3>
+                    <p>CRM-powered volunteer management with official verification</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>For Universities</h3>
+                    <p>Instant authentication of extracurricular activities</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>For Employers</h3>
+                    <p>Reliable background verification for hiring decisions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works">
+        <div class="container">
+            <div class="section-title">
+                <h2>How It Works</h2>
+                <p>Our streamlined process ensures trust and verification at every step</p>
+            </div>
+            
+            <div class="process-flow">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h4>Opportunity Announcement</h4>
+                    <p>Organizations post verified volunteer opportunities</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h4>Student Participation</h4>
+                    <p>Students apply and complete volunteer work</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h4>Verification</h4>
+                    <p>Organization confirms hours → System issues secure certificate</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h4>Validation</h4>
+                    <p>Universities/employers instantly verify authenticity</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CRM Section -->
+    <section>
+        <div class="container">
+            <div class="crm-section">
+                <h2 style="text-align: center; margin-bottom: 30px;">Integrated CRM System</h2>
+                <p style="text-align: center; font-size: 1.2rem; margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto;">Our built-in Customer Relationship Management system helps organizations streamline volunteer management</p>
+                
+                <div class="crm-features">
+                    <div class="crm-feature">
+                        <h4><i class="fas fa-chart-line"></i> Track Engagement</h4>
+                        <p>Monitor volunteer participation and retention rates</p>
+                    </div>
+                    
+                    <div class="crm-feature">
+                        <h4><i class="fas fa-file-alt"></i> Automated Reports</h4>
+                        <p>Generate CSR and impact reports with one click</p>
+                    </div>
+                    
+                    <div class="crm-feature">
+                        <h4><i class="fas fa-link"></i> System Integration</h4>
+                        <p>Connect with existing HR and management systems</p>
+                    </div>
+                    
+                    <div class="crm-feature">
+                        <h4><i class="fab fa-telegram"></i> Telegram Integration</h4>
+                        <p>Connect existing Telegram volunteer channels</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Forms -->
+    <section id="for-students">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get Started Today</h2>
+                <p>Join VolunteerHub and start building your verified volunteer portfolio</p>
+            </div>
+            
+            <div class="forms-section">
+                <div class="form-container" id="student-registration">
+                    <h3>Student Registration</h3>
+                    <form id="studentForm">
+                        <div class="form-group">
+                            <label for="studentEmail">University Email</label>
+                            <input type="email" id="studentEmail" class="form-control" placeholder="example@university.edu" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="studentName">Full Name</label>
+                            <input type="text" id="studentName" class="form-control" placeholder="John Doe" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="studentStatus">Current Status</label>
+                            <select id="studentStatus" class="form-control" required>
+                                <option value="">Select Status</option>
+                                <option value="highschool">High School Student</option>
+                                <option value="university">University Student</option>
+                                <option value="graduate">Recent Graduate</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="studentInterest">Primary Interest</label>
+                            <select id="studentInterest" class="form-control" required>
+                                <option value="">Select Interest</option>
+                                <option value="local">Local Employment (Uzbekistan)</option>
+                                <option value="international">International Study</option>
+                                <option value="both">Both</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Create Free Account</button>
+                    </form>
+                </div>
+                
+                <div class="form-container" id="organization-registration">
+                    <h3>Organization Registration</h3>
+                    <form id="organizationForm">
+                        <div class="form-group">
+                            <label for="orgName">Organization Name</label>
+                            <input type="text" id="orgName" class="form-control" placeholder="Your Organization" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="orgEmail">Official Email</label>
+                            <input type="email" id="orgEmail" class="form-control" placeholder="contact@organization.org" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="orgType">Organization Type</label>
+                            <select id="orgType" class="form-control" required>
+                                <option value="">Select Type</option>
+                                <option value="ngo">NGO/Non-profit</option>
+                                <option value="corporate">Corporate CSR</option>
+                                <option value="government">Government Agency</option>
+                                <option value="education">Educational Institution</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="volunteerCount">Approximate Volunteers/Year</label>
+                            <input type="number" id="volunteerCount" class="form-control" placeholder="100" min="1">
+                        </div>
+                        
+                        <button type="submit" class="btn btn-secondary" style="width: 100%;">Request Demo</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Telegram Migration Section -->
+    <section>
+        <div class="container">
+            <div class="telegram-section">
+                <h3>Already using Telegram for volunteering?</h3>
+                <p>We're partnering with major Telegram volunteer channels to bring opportunities onto our verified platform. Migrate your existing volunteer experience to gain official verification.</p>
+                <a href="#migrate" class="btn btn-primary">Migrate Your Experience</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section>
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Users Say</h2>
+                <p>Trusted by students, organizations, and institutions</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">"VolunteerHub helped me verify my experience for both job applications in Tashkent and my master's application to the UK. The dual verification is a game-changer!"</div>
+                    <div class="testimonial-author">- Aziza, Recent Graduate</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">"The CRM system cut our volunteer management time by 70%. The official verification adds credibility to our programs and impresses our donors."</div>
+                    <div class="testimonial-author">- Youth Development NGO Director</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">"As an international admissions officer, I can instantly verify extracurricular claims from Uzbek applicants. This saves us hours of verification work."</div>
+                    <div class="testimonial-author">- University Admissions Officer, UK</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnerships -->
+    <section id="for-organizations">
+        <div class="container">
+            <div class="section-title">
+                <h2>Official Partnerships</h2>
+                <p>Working with leading organizations to build trust and credibility</p>
+            </div>
+            
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <h3>Uzbekistan Youth Affairs Agency</h3>
+                    <p>Official verification partner for national youth volunteer programs and career development initiatives</p>
+                </div>
+                
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Uzbekistan Volunteers Association</h3>
+                    <p>Platform for centralizing and verifying volunteer opportunities nationwide with standardized processes</p>
+                </div>
+                
+                <div class="partner-card">
+                    <div class="partner-logo">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>CommonUp Integration</h3>
+                    <p>Launching soon: Direct verification for international university applications through CommonUp platform</p>
+                    <div style="margin-top: 15px; color: var(--accent-gold); font-weight: 600;">Coming Q2 2024</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Flexible Pricing Plans</h2>
+                <p>Choose the plan that fits your needs</p>
+            </div>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Free</h3>
+                    <div class="price">$0<span>/month</span></div>
+                    <p>For individual students starting their journey</p>
+                    
+                    <ul class="pricing-features">
+                        <li>Basic profile and opportunity access</li>
+                        <li>Up to 3 verified experiences annually</li>
+                        <li>Standard CV integration</li>
+                        <li>Email support</li>
+                    </ul>
+                    
+                    <a href="#student-registration" class="btn btn-outline">Get Started Free</a>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <div class="featured-badge">Most Popular</div>
+                    <h3>Professional</h3>
+                    <div class="price">$50<span>/month</span></div>
+                    <p>For growing organizations and NGOs</p>
+                    
+                    <ul class="pricing-features">
+                        <li>Up to 100 volunteers</li>
+                        <li>Essential CRM features</li>
+                        <li>Basic verification tools</li>
+                        <li>Standard support</li>
+                        <li>Basic reporting</li>
+                    </ul>
+                    
+                    <a href="#organization-registration" class="btn btn-primary">Start Free Trial</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3>Enterprise</h3>
+                    <div class="price">Custom</div>
+                    <p>For large organizations and government agencies</p>
+                    
+                    <ul class="pricing-features">
+                        <li>Unlimited volunteers</li>
+                        <li>Full CRM customization</li>
+                        <li>Advanced verification</li>
+                        <li>Priority support</li>
+                        <li>Advanced analytics</li>
+                        <li>Dedicated account manager</li>
+                    </ul>
+                    
+                    <a href="#contact" class="btn btn-outline">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section>
+        <div class="container">
+            <div class="section-title">
+                <h2>Latest Insights</h2>
+                <p>Stay updated with the latest trends in volunteering and verification</p>
+            </div>
+            
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Industry Insights</span>
+                            <span>March 15, 2024</span>
+                        </div>
+                        <h4>From Telegram Channels to Verified Portfolios</h4>
+                        <p>How VolunteerHub is formalizing Uzbekistan's fragmented volunteer ecosystem...</p>
+                    </div>
+                </div>
+                
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">For Students</span>
+                            <span>March 10, 2024</span>
+                        </div>
+                        <h4>Verified Experience for International Admissions</h4>
+                        <p>How authenticated volunteering can strengthen your global university applications...</p>
+                    </div>
+                </div>
+                
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">For Organizations</span>
+                            <span>March 5, 2024</span>
+                        </div>
+                        <h4>CRM Best Practices for Volunteer Management</h4>
+                        <p>Maximize your organization's impact with efficient volunteer tracking...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Have questions? Get in touch with our team</p>
+            </div>
+            
+            <div style="max-width: 600px; margin: 0 auto; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="contactName">Full Name</label>
+                        <input type="text" id="contactName" class="form-control" placeholder="Your Name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contactEmail">Email Address</label>
+                        <input type="email" id="contactEmail" class="form-control" placeholder="your@email.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contactSubject">Subject</label>
+                        <select id="contactSubject" class="form-control" required>
+                            <option value="">Select Subject</option>
+                            <option value="partnership">Partnership Inquiry</option>
+                            <option value="technical">Technical Support</option>
+                            <option value="billing">Billing Question</option>
+                            <option value="general">General Inquiry</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contactMessage">Message</label>
+                        <textarea id="contactMessage" class="form-control" rows="5" placeholder="Your message..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <a href="#" class="logo" style="color: white; margin-bottom: 25px; display: inline-block;">
+                        <i class="fas fa-hands-helping"></i>
+                        VolunteerHub
+                    </a>
+                    <p style="color: #D1D5DB; margin-bottom: 20px;">Trusted verification for global education and local careers.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">API Integration</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Contact Info</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope" style="margin-right: 10px;"></i> info@volunteerhub.uz</li>
+                        <li><i class="fas fa-phone" style="margin-right: 10px;"></i> +998 71 123 4567</li>
+                        <li><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> Tashkent, Uzbekistan</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 VolunteerHub. All rights reserved. | Partnered with Uzbekistan Youth Affairs Agency & Uzbekistan Volunteers Association</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Form Submissions
+        document.getElementById('studentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for registering! We will contact you shortly.');
+            this.reset();
+        });
+        
+        document.getElementById('organizationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Demo request received! Our team will contact you within 24 hours.');
+            this.reset();
+        });
+        
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Message sent successfully! We will respond as soon as possible.');
+            this.reset();
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if(this.getAttribute('href') === '#') return;
+                
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Telegram migration button
+        document.querySelector('a[href="#migrate"]').addEventListener('click', function(e) {
+            e.preventDefault();
+            const telegramChannel = prompt('Please enter your Telegram channel username (without @):');
+            if(telegramChannel) {
+                alert(`Thank you! We've received your migration request for @${telegramChannel}. Our team will contact you with next steps.`);
+            }
+        });
+    </script>
+</body>
+</html>
